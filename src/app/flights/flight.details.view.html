@@ -1,0 +1,90 @@
+<div class="layout-column pad mgt5 shadow-box" *ngIf="flight">
+    <div class="layout-row">
+        <h2>Flight Details {{flight.id}}</h2>
+        <button class="btn-default" (click)="backToSearch()">Back</button>
+    </div>
+    <div class="layout-row">
+        <div>
+            <p>Operated by <strong>easyJet</strong></p>
+            <div class="carrier-logo" [ngClass]="flight.flightNumber.carrierCode"></div>
+        </div>
+        <div class="flex-right">
+            <p>Flight # {{flight.flightNumber.number}}</p>
+            <p>Available
+                <span>
+                <i *ngIf="!flight.isDisrupted"  class="fa fa-check-circle fa-lg"></i>
+                <i *ngIf="flight.isDisrupted" class="fa fa-minus-circle fa-lg"></i>
+            </span>
+            </p>
+            <p>Seats Available: {{flight.seatsAvailable}}</p>
+        </div>
+    </div>
+    <hr>
+    <div class="layout-row">
+        <table>
+            <tr>
+                <th></th>
+                <th>Departure</th>
+                <th>Arrival</th>
+            </tr>
+            <tr>
+                <td>Airport</td>
+                <td>{{flight.departureAirport}}</td>
+                <td>{{flight.arrivalAirport}}</td>
+            </tr>
+            <tr>
+                <td>Airport Code</td>
+                <td>{{flight.departureAirportCode}}</td>
+                <td>{{flight.arrivalAirportCode}}</td>
+            </tr>
+            <tr>
+                <td>Terminal</td>
+                <td>{{flight.depTerminalName}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td>{{flight.localDepartureTime | date:'dd/MM/y'}}</td>
+                <td>{{flight.localDepartureTime| date:'HH:mm'}}</td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td>{{flight.localArrivalTime | date:'dd/MM/y'}}</td>
+                <td>{{flight.localArrivalTime| date:'HH:mm'}}</td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <h3 class="layout-row flex-left">
+        Prices:
+    </h3>
+    <div class="layout-row">
+        <table>
+            <tr>
+                <th></th>
+                <th>Adult</th>
+                <th>Child</th>
+                <th>Infant</th>
+            </tr>
+            <tr>
+                <td>Value</td>
+                <td>{{flight.prices.adult.value | currency:'GBP':true}}</td>
+                <td>{{flight.prices.child.value | currency:'GBP':true}}</td>
+                <td>{{flight.prices.infant | checkNull}}</td>
+            </tr>
+            <tr>
+                <td>Credit Card</td>
+                <td>{{flight.prices.adult.valueWithDebitCard | currency:'GBP':true}}</td>
+                <td>{{flight.prices.child.valueWithDebitCard | currency:'GBP':true}}</td>
+                <td>{{flight.prices.infant | checkNull}}</td>
+            </tr>
+            <tr>
+                <td>Debit Card</td>
+                <td>{{flight.prices.adult.valueWithCreditCard | currency:'GBP':true}}</td>
+                <td>{{flight.prices.child.valueWithCreditCard | currency:'GBP':true}}</td>
+                <td>{{flight.prices.infant | checkNull}}</td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+</div>

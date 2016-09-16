@@ -1,0 +1,42 @@
+<div class="flights-container">
+    <div class="search-head clearfix" [class.header-bgr]="scroll">
+        <div class="layout-row flex-center">
+            <div class="layout-column">
+                <p class="flex-left no-marg">LGW</p>
+                <p class="subline" (click)="alertDemo('DEMO - the data here should be populated from another API request')">
+                    London Luton <i class="fa fa-chevron-down fa-lg"></i>
+                </p>
+            </div>
+            <div class="layout-column flex-center">
+                <i class="fa fa-plane fa-3x"></i>
+            </div>
+            <div class="layout-column">
+                <p class="flex-left no-marg">SXF</p>
+                <p class="subline" (click)="alertDemo('DEMO - the data here should be populated from another API request')">
+                    Berlin Schoenefeld <i class="fa fa-chevron-down fa-lg"></i>
+                </p>
+            </div>
+        </div>
+        <div class="layout-row flex-center">
+            <p>From </p>
+            <p class="subline normal" (click)="alertDemo('DEMO - calendar pick date')">
+                Thursday, June 30 <i class="fa fa-chevron-down fa-lg"></i>
+            </p>
+            <p> To </p>
+            <p class="subline normal" (click)="alertDemo('DEMO - calendar pick date')">
+                Friday, July 1st <i class="fa fa-chevron-down fa-lg"></i>
+            </p>
+        </div>
+        <div class="layout-row pad">
+            <input type="text" id="flNumber" class="form-control" placeholder="filter by flight number" [(ngModel)]="flNumber">
+            <input (keyup)="onlyNumbers()" type="text" id="flPrice" class="form-control" placeholder="filter by price; < value" [(ngModel)]="flPrice">
+        </div>
+    </div>
+    <div class="inner flights">
+        <ul class="list-items">
+            <li *ngFor="let flight of flights | flightNumberFilter:flNumber | flightPriceFilter:flPrice">
+                <flight [item]="flight"></flight>
+            </li>
+        </ul>
+    </div>
+</div>
