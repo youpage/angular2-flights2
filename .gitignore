@@ -1,7 +1,11 @@
 node_modules
+coverage
+dist
 npm-debug.log
 src/app/**/*.js
 src/app/**/*.js.map
+src/test/**/*.js
+src/test/**/*.js.map
 
 
 

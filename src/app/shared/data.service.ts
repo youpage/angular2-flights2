@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 
 import { IFlight} from '../flights/interfaces';
 
-const url: string = 'http://ejtestbed.herokuapp.com/flights'; //'./api/flights.json';
+const url: string = './api/flights.json'; 
 
 @Injectable()
 export class DataService {
