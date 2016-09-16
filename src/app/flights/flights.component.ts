@@ -64,7 +64,7 @@ export class FlightsComponent implements OnInit {
 
     public onlyNumbers() {
         let key = event.keyCode || event.charCode;
-        if (key != 37 && key != 39)
+        if (key != 37 && key != 39 && this.flPrice)
             this.flPrice = this.flPrice.replace(/[^\d]/g, '');
     }
 

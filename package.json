@@ -3,15 +3,13 @@
   "author": "Claudiu Garbacea",
   "version": "0.0.2",
   "scripts": {
-    "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "bundle": "node bundle.js",
     "clean:tsc": "cpx \"app/**/*.{js,map}\" \"src/app\" --clean --verbose",
     "bundle:prod": "node bundle.js --prod",
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "test": "karma start karma.conf.js",
-    "typings": "typings"
+    "test": "karma start karma.conf.js"
   },
   "license": "ISC",
   "dependencies": {
