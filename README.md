@@ -15,6 +15,21 @@ I used different css technics to display each flight item VS details for each it
 
 3. Run `npm start` to start the server and launch the app
 
-4. RUn `npm bundle.js --prod` to bundle it in /dist/bundle.min.js
-    Modify index.html as per comments to run the bundle
+## Running the Application in production
+
+Follow 1, 2, 3 then
+
+4. Run `npm run bundle:prod` to bundle it in /dist/bundle.min.js
+    
+5. Modify index.html as per comments to run the bundle
+
+# Remove transcripts
+
+- Run `npm run clean:tsc`
+
+# Run unit tests
+
+- Run `npm run test`
+
+
 

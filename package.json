@@ -1,13 +1,13 @@
 {
   "name": "angular2-flights",
   "author": "Claudiu Garbacea",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "bundle": "node bundle.js",
-    "clear:tsc": "cpx \"app/**/*.{js,map}\" \"src/app\" --clean --verbose",
+    "clean:tsc": "cpx \"app/**/*.{js,map}\" \"src/app\" --clean --verbose",
     "bundle:prod": "node bundle.js --prod",
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "test": "karma start karma.conf.js",
