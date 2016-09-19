@@ -1,3 +1,5 @@
+export const URLPATH:string = 'flights.json';
+
 export interface IFlight {
     id: string,
     flightNumber: IFlightNr,

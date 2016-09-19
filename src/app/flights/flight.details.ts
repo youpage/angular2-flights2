@@ -1,8 +1,8 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
-import {Subscription} from 'rxjs/Subscription';
-import {DataService} from '../shared/data.service';
-import {IFlight}  from './interfaces';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+import { DataService } from '../core/data.service';
+import { IFlight, URLPATH } from './interfaces';
 
 @Component({
     moduleId: module.id,
@@ -24,13 +24,13 @@ export class FlightDetails implements OnInit {
     getFlight() {
         this.sub = this.route.params.subscribe(params => {
             let id = params['id'];
-            this.dataService.getFlight(id).subscribe(
-                (data:any) => {
+            this.dataService.getAll(URLPATH).subscribe(
+                (data: any) => {
                     //since we don't get the single flight from the API we look it up here                   
                     let flights = data;
                     this.flight = data.find((fl: IFlight) => fl.id === id);
                 },
-                (err:any) => { this.flight_error = true }
+                (err: any) => { this.flight_error = true }
             )
         });
     }

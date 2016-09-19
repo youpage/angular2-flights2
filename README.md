@@ -1,6 +1,6 @@
 # Angular 2 and TypeScript Flights
 
-A much better version, that can be easilly extended with other modules... comming here soon
+A much better version, that can be easilly extended with other modules.
 
 Added CoreJS for Polyfills - it works in IE (almost all features)
 Changed the app starting point so we can do refresh

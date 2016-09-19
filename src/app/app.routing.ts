@@ -1,16 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent }     from './home/home.component';
-import { FlightsComponent }   from './flights/flights.component';
-import { FlightDetails }     from './flights/flight.details';
-
-
 const app_routes: Routes = [
-  { path: '',  pathMatch:'full', redirectTo: '/home' },
-  { path: 'home',  component: HomeComponent },
-  { path: 'flights', component: FlightsComponent },
-  { path: 'flights/:id', component: FlightDetails },
-
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
+  { path: 'home', loadChildren: 'app/home/index' },
+  { path: 'flights', loadChildren: 'app/flights/index' },
+  { path: '**', pathMatch: 'full', redirectTo: '/home' }
 ];
 
-export const app_routing = RouterModule.forRoot(app_routes);
+export const AppRouting = RouterModule.forRoot(app_routes);

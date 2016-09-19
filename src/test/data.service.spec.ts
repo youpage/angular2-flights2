@@ -2,8 +2,8 @@ import { inject, async, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { ConnectionBackend, Http, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
-import { DataService } from '../app/shared/data.service';
-import { IFlight } from '../app/flights/interfaces';
+import { DataService } from '../app/core/data.service';
+import { IFlight, URLPATH } from '../app/flights/interfaces';
 
 describe('Service: data service API request tests', () => {
 
@@ -30,7 +30,7 @@ describe('Service: data service API request tests', () => {
                 let response = new ResponseOptions({ body: '[{"id": "EZ001"}, {"id": "EZ002"}]' });
                 c.mockRespond(new Response(response));
             });
-            dataService.getFlights().subscribe((response:IFlight[]) => {
+            dataService.getAll(URLPATH).subscribe((response:IFlight[]) => {
                 res = response;
             });
             tick();
@@ -42,11 +42,11 @@ describe('Service: data service API request tests', () => {
         inject([DataService, MockBackend], fakeAsync((dataService: DataService, mockBackend: MockBackend) => {
             let res: IFlight;
             mockBackend.connections.subscribe((c:any) => {
-                expect(c.request.url).toBe('./api/flights.json');
+                expect(c.request.url).toBe('./api/flights.json/EZ001');
                 let response = new ResponseOptions({ body: '[{"id": "EZ001", "departureAirportCode": "LGW"}, {"id": "EZ002", "departureAirportCode": "SXF"}]' });
                 c.mockRespond(new Response(response));
             });
-            dataService.getFlight('EZ001').subscribe((response:any) => {
+            dataService.getById(URLPATH, 'EZ001').subscribe((response:any) => {
                 res = response;
             });
             tick();

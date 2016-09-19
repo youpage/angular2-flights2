@@ -1,0 +1,13 @@
+<div class="layout-row pad">
+    <input type="text" id="flNumber" class="form-control" placeholder="filter by flight number" [(ngModel)]="flNumber">
+    <input (keyup)="onlyNumbers()" type="text" id="flPrice" class="form-control" placeholder="filter by price; < value" [(ngModel)]="flPrice">
+</div>
+<div class="search-list">
+    <div class="inner flights">
+        <ul class="list-items">
+            <li *ngFor="let flight of flights | flightNumberFilter:flNumber | flightPriceFilter:flPrice">
+                <flight [item]="flight"></flight>
+            </li>
+        </ul>
+    </div>
+</div>

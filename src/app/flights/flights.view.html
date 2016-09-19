@@ -1,5 +1,5 @@
-<div class="flights-container">
-    <div class="search-head clearfix" [class.header-bgr]="scroll">
+<div class="flights-container layout-column">
+    <div class="search-header flex-none shadow-box" [class.header-bgr]="scroll">
         <div class="layout-row flex-center">
             <div class="layout-column">
                 <p class="flex-left no-marg">LGW</p>
@@ -27,16 +27,6 @@
                 Friday, July 1st <i class="fa fa-chevron-down fa-lg"></i>
             </p>
         </div>
-        <div class="layout-row pad">
-            <input type="text" id="flNumber" class="form-control" placeholder="filter by flight number" [(ngModel)]="flNumber">
-            <input (keyup)="onlyNumbers()" type="text" id="flPrice" class="form-control" placeholder="filter by price; < value" [(ngModel)]="flPrice">
-        </div>
     </div>
-    <div class="inner flights">
-        <ul class="list-items">
-            <li *ngFor="let flight of flights | flightNumberFilter:flNumber | flightPriceFilter:flPrice">
-                <flight [item]="flight"></flight>
-            </li>
-        </ul>
-    </div>
+    <router-outlet></router-outlet>
 </div>
